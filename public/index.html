@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!-- Favicons -->
+  <link href="../src/assets/img/favicon.png" rel="icon">
+  <link href="../src/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/> -->
+
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>React App</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/validate-js/2.0.1/validate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      $('.owl-carousel').owlCarousel({
+        mouseDrag: false,
+        loop: true,
+        margin: 2,
+        nav: true,
+        autoplay: true,
+        // autoplaySpeed: 3000,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          1000: {
+            items: 3
+          }
+        }
+      });
+
+      $('.owl-prev').click(function () {
+        $active = $('.owl-item .item.show');
+        $('.owl-item .item.show').removeClass('show');
+        $('.owl-item .item').removeClass('next');
+        $('.owl-item .item').removeClass('prev');
+        $active.addClass('next');
+        if ($active.is('.first')) {
+          $('.owl-item .last').addClass('show');
+          $('.first').addClass('next');
+          $('.owl-item .last').parent().prev().children('.item').addClass('prev');
+        }
+        else {
+          $active.parent().prev().children('.item').addClass('show');
+          if ($active.parent().prev().children('.item').is('.first')) {
+            $('.owl-item .last').addClass('prev');
+          }
+          else {
+            $('.owl-item .show').parent().prev().children('.item').addClass('prev');
+          }
+        }
+      });
+
+      $('.owl-next').click(function () {
+        $active = $('.owl-item .item.show');
+        $('.owl-item .item.show').removeClass('show');
+        $('.owl-item .item').removeClass('next');
+        $('.owl-item .item').removeClass('prev');
+        $active.addClass('prev');
+        if ($active.is('.last')) {
+          $('.owl-item .first').addClass('show');
+          $('.owl-item .first').parent().next().children('.item').addClass('prev');
+        }
+        else {
+          $active.parent().next().children('.item').addClass('show');
+          if ($active.parent().next().children('.item').is('.last')) {
+            $('.owl-item .first').addClass('next');
+          }
+          else {
+            $('.owl-item .show').parent().next().children('.item').addClass('next');
+          }
+        }
+      });
+
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+
+      $('.counter').each(function () {
+        $(this).prop('Counter', 0).animate({
+          Counter: $(this).text()
+        }, {
+          duration: 4000,
+          easing: 'swing',
+          step: function (now) {
+            $(this).text(Math.ceil(now));
+          }
+        });
+      });
+
+    });
+  </script>
+  <script>
+    // JavaScript Document
+    var p = {
+
+      0: "100K",
+      1: "150K",
+      2: "200K",
+      3: "250K",
+      4: "300K",
+      5: "350K",
+      6: "400K",
+      7: "450K",
+      8: "500K",
+      9: "550K",
+      10: "600K",
+      11: "650K",
+      12: "700K",
+      13: "750K",
+      14: "800K",
+      15: "850K",
+      16: "900K",
+      17: "950K",
+      18: "1,000K",
+      19: "1,100K",
+      20: "1,200K",
+      21: "1,300K",
+      22: "1,400K",
+      23: "1,500K",
+      24: "1,600K",
+      25: "1,700K",
+      26: "1,800K",
+      27: "19,00K",
+      28: "2,000K",
+    };
+
+    var t = {
+
+      0: "100000",
+      1: "150000",
+      2: "200000",
+      3: "250000",
+      4: "300000",
+      5: "350000",
+      6: "400000",
+      7: "450000",
+      8: "500000",
+      9: "550000",
+      10: "600000",
+      11: "650000",
+      12: "700000",
+      13: "750000",
+      14: "800000",
+      15: "850000",
+      16: "900000",
+      17: "950000",
+      18: "1000000",
+      19: "1100000",
+      20: "1200000",
+      21: "1300000",
+      22: "1400000",
+      23: "1500000",
+      24: "1600000",
+      25: "1700000",
+      26: "1800000",
+      27: "1900000",
+      28: "2000000",
+
+    }
+
+    var obj = {
+      '24month': {
+        'quarterly': '1.41',
+        'monthly': '1.28',
+        'weekly': '1.2'
+      },
+      '18month': {
+        'quarterly': '1.38',
+        'monthly': '1.25',
+        'weekly': '1.8'
+      },
+      '12month': {
+
+        'quarterly': '1.35',
+        'monthly': '1.225',
+        'weekly': '1.15'
+      }
+    };
+
+    $(document).ready(function () {
+
+      $("#total").val("10000");
+
+
+
+      $("#slider_amirol").slider({
+        range: "min",
+        animate: true,
+
+        min: 0,
+        max: 28,
+        step: 1,
+        slide:
+          function (event, ui) {
+            update(1, ui.value); //changed
+            calcualtePrice(ui.value);
+          }
+      });
+
+      $('.month').on('click', function (event) {
+        var id = $(this).attr('id');
+
+        $('.month').removeClass('selected-month');
+        $(this).addClass('selected-month');
+        $(".month").removeClass("active-month");
+        $(this).addClass("active-month");
+
+        $('#month').val(id);
+
+        calcualtePrice()
+      });
+
+      $('.term').on('click', function (event) {
+        var id = $(this).attr('id');
+
+        $('.term').removeClass('selected-term');
+        $(this).addClass('selected-term');
+        $(".term").removeClass("active-term");
+        $(this).addClass("active-term");
+        $('#term').val(id);
+
+        calcualtePrice()
+      });
+
+      update();
+      calcualtePrice();
+    });
+
+
+
+    function update(slider, val) {
+
+      if (undefined === val) val = 0;
+      var amount = p[val];
+
+      $('#sliderVal').val(val);
+
+      $('#slider_amirol a').html('<label><span class="glyphicon glyphicon-chevron-left"></span> ' + amount + ' <span class="glyphicon glyphicon-chevron-right"></span></label>');
+    }
+
+    function calcualtePrice(val) {
+
+      if (undefined === val)
+        val = $('#sliderVal').val();
+
+      var month = $('#month').val();
+      var term = obj[month][$('#term').val()];
+
+      var totalPrice = t[val] * term;
+
+      $("#total").val(totalPrice.toFixed(2));
+      $("#total12").val(Math.round((totalPrice) / 12).toFixed(2));
+      $("#total52").val(Math.round((totalPrice) / 52).toFixed(2));
+    }
+  </script>
+
+</body>
+
+</html>
