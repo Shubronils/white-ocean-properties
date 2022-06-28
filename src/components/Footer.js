@@ -103,7 +103,7 @@ export default function Footer() {
                                 </p>
                             </div>
                             <div className="credits">
-                                Designed by <a href="#">Ocean</a>
+                                Designed & Developed by <a href="https://www.ecodedash.com/">Ecode dash pvt ltd</a>
                             </div>
                         </div>
                     </div>
